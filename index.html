@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Fuzail Mansuri</title>
+</head>
+<style>
+body{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.👑{
+    font-family: "Epilogue", serif;
+    font-weight: bold;
+ text-align: center;
+}
+.💬{
+    font-family: "Epilogue", serif;
+    font-style: italic;
+    text-align: center;
+    margin: 10px;
+    font-size: 19px;
+
+}
+#device-info{
+    font-family: "Epilogue", serif;
+    text-align: center;
+    font-size: 15px;
+}
+main img{
+    width: 260px;
+    height: 230px;
+}
+.link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+a{
+    font-family: "Epilogue", serif;
+    color: rgb(2, 129, 226);
+    margin: 10px;
+    font-size: 18px;
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    main img{
+    width: 260px;
+    height: 240px;
+}
+}
+</style>
+<body>
+    
+<main>
+    <p id="device-info"></p>
+    <img src="under-construction.gif" alt="">
+    <h1 class="👑 💕 ">"Building something extraordinary... Brick by brick, line by line."</h1>
+    <p class="💬">"Stay tuned. It's going to be worth the wait!"</p>
+<div class="links">
+    <a href="">linkedin</a>
+    <a href="">Github</a>
+</div>
+</main>
+    <script>
+        async function detectMacArchitecture() {
+    if (navigator.platform === "MacIntel") {
+        // WebAssembly method to check architecture
+        let isArm = false;
+        try {
+            isArm = (await WebAssembly.compile(new Uint8Array([0x00, 0x61, 0x73, 0x6D, 0x01, 0x00, 0x00, 0x00]))), true;
+        } catch (e) {
+            isArm = false;
+        }
+
+        return isArm ? "Mac0S" : "Mac (Intel)";
+    }
+    return navigator.platform; // Return original platform for non-Mac devices
+}
+
+ async function getDeviceSpecs() {
+    const os = await detectMacArchitecture();
+            
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
+
+
+            document.getElementById('device-info').innerHTML =`Looks like you're on ${os} , using ${isMobile} device ✌️`
+
+  }
+  getDeviceSpecs();
+    </script>
+</body>
+</html>
